@@ -17,6 +17,7 @@ def display_menu():
     print("3. Mark a task as complete")
     print("4. Delete a task")
     print("5. Quit")
+    print("\nPlease select an option (1-5) by entering the corresponding number and press Enter:")
 
 def add_task(task_list):
     """Adds a task to the task list with 'Incomplete' status."""
@@ -108,7 +109,12 @@ def main():
 
     while True:
         display_menu()
-        choice = input("Select an option (1-5): ")
+        while True:
+            choice = input("Select an option (1-5): ")
+            if choice in ['1', '2', '3', '4', '5']:
+                break  # Valid input, break the loop
+            else:
+                print("Invalid selection! Please enter a number between 1 and 5.")
 
         try:
             if choice == '1':
