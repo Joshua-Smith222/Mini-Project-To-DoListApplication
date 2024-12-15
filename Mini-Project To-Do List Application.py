@@ -47,7 +47,9 @@ def view_tasks(task_list):
         print("No tasks available.")
     else:
         for i, task in enumerate(task_list, start=1):
-            print(f"{i}. {task['title']} - {task['status']}")
+            status_color = Colors.RED if task['status'] == 'Incomplete' else Colors.GREEN
+            due_date_str = task['due_date'].strftime('%Y-%m-%d') if task['due_date'] else 'No due date'
+            print(f"{i}. {task['title']} - {status_color}{task['status']}{Colors.RESET} - Priority: {task['priority']} - Due: {due_date_str}")
 
 def mark_task_complete(task_list):
     """Marks a task as complete based on the user's choice."""
