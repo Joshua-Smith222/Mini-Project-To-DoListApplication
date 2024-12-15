@@ -21,8 +21,25 @@ def display_menu():
 def add_task(task_list):
     """Adds a task to the task list with 'Incomplete' status."""
     task_title = input("Enter the task title: ")
-    task_list.append({'title': task_title, 'status': 'Incomplete'})
-    print(f"Task '{task_title}' added successfully!")
+
+     # Priority selection
+    priority = input("Enter the priority (low, medium, high): ").lower()
+    while priority not in ['low', 'medium', 'high']:
+        print("Invalid priority. Please enter 'low', 'medium', or 'high'.")
+        priority = input("Enter the priority (low, medium, high): ").lower()
+
+    # Due date selection
+    due_date_input = input("Enter the due date (YYYY-MM-DD): ")
+    try:
+        due_date = datetime.strptime(due_date_input, '%Y-%m-%d')
+    except ValueError:
+        print("Invalid date format. Setting due date to 'No due date'.")
+        due_date = None
+
+    task_list.append({'title': task_title, 'status': 'Incomplete', 'priority': priority, 'due_date': due_date})
+    print(f"Task '{task_title}' with priority '{priority}' added successfully!")
+
+
 
 def view_tasks(task_list):
     """Displays all tasks with their titles and statuses."""
