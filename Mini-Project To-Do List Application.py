@@ -53,6 +53,14 @@ def view_tasks(task_list):
 
 def mark_task_complete(task_list):
     """Marks a task as complete based on the user's choice."""
+    if not task_list:
+        print("No tasks available to mark as complete.")
+        return
+    # Display available tasks to choose from
+    view_tasks(task_list)
+
+
+    """Marks a task as complete based on the user's choice."""
     try:
         task_number = int(input("Enter the task number to mark as complete: "))
         if task_number < 1 or task_number > len(task_list):
@@ -69,6 +77,15 @@ def mark_task_complete(task_list):
         print("Operation complete.")
 
 def delete_task(task_list):
+
+    """Deletes a task from the task list based on the user's choice."""
+    if not task_list:
+        print("No tasks available to delete.")
+        return
+
+    # Display available tasks to choose from
+    view_tasks(task_list)
+
     """Deletes a task from the task list based on the user's choice."""
     try:
         task_number = int(input("Enter the task number to delete: "))
