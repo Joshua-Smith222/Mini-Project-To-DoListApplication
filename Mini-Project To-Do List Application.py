@@ -1,3 +1,13 @@
+from datetime import datetime
+
+# Define colors for terminal output (Color coding)
+class Colors:
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    RESET = '\033[0m'
+
+
+
 def display_menu():
     """Displays the menu options to the user."""
     print("\nWelcome to the To-Do List App!")
@@ -87,4 +97,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
